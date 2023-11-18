@@ -1,0 +1,26 @@
+{
+"img_size": 100,
+"min_radius": 30,
+"max_radius": 50,
+"noise_level": 0.5,
+"num_train_examples": 32000,
+"num_val_examples": 6400,
+"num_test_examples": 6400,
+"thresholds": [0.5, 0.75, 0.9, 0.95],
+"batch_size": 128,
+
+"optimizer_config": {
+    "type": "sgd",
+    "params": {"lr": 0.01, "momentum": 0.9}
+    },
+"scheduler_config": {
+    "type": "steplr",
+    "params": {"step_size": 60, "gamma": 0.9 }
+    },
+"num_epochs": 50000,
+
+"log_dir": "saved/logs",
+"checkpoint_dir": "saved/checkpoints",
+"model_name": "CD_3pool",
+"pretrained_model": ""
+}
