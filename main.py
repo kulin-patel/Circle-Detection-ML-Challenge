@@ -7,7 +7,7 @@ import json
 import torch
 from torch.utils.data import DataLoader
 from dataset import CircleDataset
-from model import CircleDetector2
+from model import CircleDetector
 from trainer import Trainer
 
 def main(config_file):
@@ -32,7 +32,7 @@ def main(config_file):
     train_loader, val_loader, test_loader = get_dataloaders(configs)
 
     # 2. Build a model to predict the parameters of the circle
-    model = CircleDetector2()
+    model = CircleDetector()
     print(model)
     print('Model Size: ', sum(p.numel() for p in model.parameters() if p.requires_grad))
 
@@ -92,4 +92,3 @@ def get_dataloaders(configs: dict)-> tuple[DataLoader, DataLoader, DataLoader]:
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main("config.json")
-    
